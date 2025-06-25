@@ -9,6 +9,10 @@ app = Flask(__name__)
 MODEL_PATH = "models/random_forest_model_2/model.pkl"
 model = joblib.load(MODEL_PATH)
 
+@app.route('/')
+def home():
+    return "API is running"
+
 @app.route('/predict', methods=['POST'])
 def predict():
     data = request.get_json()
