@@ -30,7 +30,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build Docker image
-        run: docker build -t hostephane/ai-model-api:latest .
+        run: docker build -t jhoozou/ai-model-api:latest .
 
       - name: Push Docker image
-        run: docker push hostephane/ai-model-api:latest
+        run: docker push jhoozou/ai-model-api:latest
