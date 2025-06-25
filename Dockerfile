@@ -1,17 +1,11 @@
-FROM python:3.10-slim
+FROM python:3.10
 
 WORKDIR /app
 
-# Installe DVC
-RUN pip install dvc[s3]
+COPY . /app
 
-# Copie les fichiers requirements et le code
-COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY . .
+EXPOSE 5000
 
-# Récupère les données et modèles versionnés avec DVC
-RUN dvc pull
-
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["python", "api.py"]

@@ -2,3 +2,6 @@
     remote = origin
 ['remote "origin"']
     url = https://dagshub.com/hostephane/ai-model-api.dvc
+    auth = basic
+    user = hostephane
+    password = e4d6f3134b30403f294716c60cee34b4f58dcf35

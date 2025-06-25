@@ -1,4 +1,5 @@
-fastapi
-uvicorn[standard]
+flask
 scikit-learn
 joblib
+mlflow
+numpy
