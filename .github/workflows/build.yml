@@ -17,10 +17,18 @@ jobs:
       with:
         python-version: 3.10
 
-    - name: Install DVC and pull model from Dagshub
+    - name: Install DVC and dependencies
       run: |
         pip install dvc[s3]
-        dvc pull
+
+    - name: Configure Dagshub credentials
+      run: |
+        dvc remote modify origin auth basic
+        dvc remote modify origin user hostephane
+        dvc remote modify origin password ${{ secrets.DAGSHUB_TOKEN }}
+
+    - name: Pull model from Dagshub with DVC
+      run: dvc pull
 
     - name: Log in to DockerHub
       uses: docker/login-action@v3
